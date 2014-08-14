@@ -10,6 +10,9 @@ output: html_document
 
 First we will start by loading the data from activity.csv file and computer any preprocessing.
 ```{r}
+library(knitr)
+library(markdown)
+
 myData <- read.csv("activity.csv", header=TRUE)
 ```
 
@@ -170,3 +173,10 @@ plot(myNewXVectorForWeekends,myNewYVectorForWeekends,xlab="interval", ylab="numb
 
 
 As per previously generated two graphs (for number of steps taken in weekdays versus weekend), we can conclude that there are differences in activity patterns.
+
+Now, we save all the results in the required files:
+
+```{r}
+knit("PA1_template.Rmd")    
+markdownToHTML("PA1_template.md", output="PA1_template.html")
+```
